@@ -9,7 +9,6 @@ import com.spring.task.api.rest.models.repositories.ITaskRepository;
 import com.spring.task.api.rest.models.repositories.IUserRepository;
 import com.spring.task.api.rest.models.repositories.IUsersTasksRepository;
 import com.spring.task.api.rest.services.ITaskService;
-import jdk.jfr.consumer.RecordedStackTrace;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +18,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+
+import static com.spring.task.api.rest.constants.Constanst.SERVER_ERROR_MESSAGE;
 
 @Service
 @Slf4j
@@ -49,7 +50,7 @@ public class TaskServiceImpl implements ITaskService {
         } catch ( Exception e ) {
             log.info("Error at getAllTask :: " + e);
             responseDTO.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            responseDTO.setMessage(HttpStatus.INTERNAL_SERVER_ERROR + " error unexpected at server. Please contact with administrator");
+            responseDTO.setMessage(SERVER_ERROR_MESSAGE);
         }
         return responseDTO;
     }
@@ -70,7 +71,7 @@ public class TaskServiceImpl implements ITaskService {
         } catch ( Exception e ) {
             log.info("Error at getTaskByID :: " + e);
             responseDTO.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            responseDTO.setMessage(HttpStatus.INTERNAL_SERVER_ERROR + " error unexpected at server. Please contact with administrator");
+            responseDTO.setMessage(SERVER_ERROR_MESSAGE);
         }
         return responseDTO;
     }
@@ -99,7 +100,7 @@ public class TaskServiceImpl implements ITaskService {
         } catch ( Exception e ) {
             log.info("Error at getAllTaskByUser :: " + e);
             responseDTO.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            responseDTO.setMessage(HttpStatus.INTERNAL_SERVER_ERROR + " error unexpected at server. Please contact with administrator");
+            responseDTO.setMessage(SERVER_ERROR_MESSAGE);
         }
         return responseDTO;
     }
@@ -128,7 +129,7 @@ public class TaskServiceImpl implements ITaskService {
         } catch ( Exception e ) {
             log.info("Error at createTask :: " + e);
             responseDTO.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            responseDTO.setMessage(HttpStatus.INTERNAL_SERVER_ERROR + " error unexpected at server. Please contact with administrator");
+            responseDTO.setMessage(SERVER_ERROR_MESSAGE);
         }
         return responseDTO;
     }
@@ -155,7 +156,7 @@ public class TaskServiceImpl implements ITaskService {
         } catch ( Exception e ) {
             log.info("Error at updatedTask :: " + e);
             responseDTO.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            responseDTO.setMessage(HttpStatus.INTERNAL_SERVER_ERROR + " error unexpected at server. Please contact with administrator");
+            responseDTO.setMessage(SERVER_ERROR_MESSAGE);
         }
         return responseDTO;
     }
@@ -183,7 +184,7 @@ public class TaskServiceImpl implements ITaskService {
         } catch ( Exception e ) {
             log.info("Error at deteleTaskByID :: " + e);
             responseDTO.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
-            responseDTO.setMessage(HttpStatus.INTERNAL_SERVER_ERROR + " error unexpected at server. Please contact with administrator");
+            responseDTO.setMessage(SERVER_ERROR_MESSAGE);
         }
         return responseDTO;
     }
