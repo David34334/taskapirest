@@ -169,6 +169,7 @@ public class TaskServiceImpl implements ITaskService {
             if ( task.isPresent() ) {
                 UsersTasks usersTasks = userTaskDAO.findByTask(task.get());
                 if ( usersTasks != null ) {
+                    userTaskDAO.delete(usersTasks);
                     taskDAO.delete(task.get());
                     responseDTO.setStatus(HttpStatus.OK.value());
                     responseDTO.setMessage("Task deleted correctly");
