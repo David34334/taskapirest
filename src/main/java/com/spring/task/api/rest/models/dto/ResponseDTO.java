@@ -13,7 +13,7 @@ import java.util.List;
 public class ResponseDTO<T> {
 
     @Builder.Default
-    private int status = 200;
+    private int status = 0;
     @Builder.Default
     private String message = "";
     @Builder.Default

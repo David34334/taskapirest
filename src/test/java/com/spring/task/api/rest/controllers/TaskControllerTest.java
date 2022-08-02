@@ -2,17 +2,24 @@ package com.spring.task.api.rest.controllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.spring.task.api.rest.models.dto.ResponseDTO;
 import com.spring.task.api.rest.models.dto.TaskDTO;
 import com.spring.task.api.rest.models.entity.Task;
 import com.spring.task.api.rest.models.repositories.ITaskRepository;
+import com.spring.task.api.rest.services.ITaskService;
+import com.spring.task.api.rest.services.impl.TaskServiceImpl;
 import com.spring.task.api.rest.util.Data;
 import com.spring.task.api.rest.utils.ParseObjectsToJson;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -24,6 +31,9 @@ import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -40,8 +50,8 @@ public class TaskControllerTest {
     @Autowired
     private ParseObjectsToJson parseObjectsToJson;
 
-    Data data = new Data();
 
+    Data data = new Data();
 
     /**
      * @GetAllTaskTest return a JSON Object with Structure: (status, message, data, dataList). DataList has all Task.
