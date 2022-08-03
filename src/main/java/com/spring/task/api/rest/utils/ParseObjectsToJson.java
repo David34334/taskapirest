@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ParseObjectsToJson {
 
-    public String convertObjectToJson(Object object) {
+    public static String convertObjectToJson(Object object) {
         String objectJson = "";
         try {
             ObjectMapper objectMapper = new ObjectMapper();
