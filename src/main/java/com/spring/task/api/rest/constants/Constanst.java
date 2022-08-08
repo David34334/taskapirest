@@ -16,5 +16,11 @@ public class Constanst {
     public static final String TASK_DESCRIPTION_REQUIRED = "Task description is required";
     public static final String TASK_STATUS_REQUIRED = "Task status is required";
     public static final String ID_USER_REQUIRED = "ID User is required";
+    public static final String TOKEN_TYPE_JSON = "token_type";
+    public static final String ACCESS_TOKEN_JSON = "access_token";
+    public static final String EXPIRES_IN_JSON = "expires_in";
+    public static final String ISSUED_AT_JSON = "issued_at";
+    public static final String USER_JSON = "user";
+    public static final String USER_ID_JSON = "user_id";
 
 }

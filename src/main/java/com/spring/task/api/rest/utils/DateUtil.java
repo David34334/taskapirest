@@ -14,7 +14,7 @@ public class DateUtil {
     @Value("${timezone.date}")
     private String TIMEZONE;
 
-    public String simpleDateFormat() {
+    public static String simpleDateFormat() {
         Date getDateNow = new Date(Calendar.getInstance().getTimeInMillis());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy - HH:mm");
         return simpleDateFormat.format(getDateNow);
